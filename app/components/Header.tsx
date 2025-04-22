@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function Header() {
   return (
-    <div className="flex justify-center p-4">
+    <div className="flex justify-center p-4 mt-5">
       <Image
         className="mt-[-5]"
         src="/pokeball.webp"
