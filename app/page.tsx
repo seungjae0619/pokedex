@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Card from "./components/Card";
-import { getPokemonList } from "./lib/pokeapi";
+import { getPokemonList, PokemonListItem } from "./lib/pokeapi";
 
 export default async function Home() {
   const data = await getPokemonList();
@@ -16,11 +16,15 @@ export default async function Home() {
 
       <main>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-7 px-25 py-10">
-          {data.results.map((pokemon: any) => {
+          {data.results.map((pokemon: PokemonListItem) => {
             const pokemonIndex =
               pokemon.url.split("/")[pokemon.url.split("/").length - 2];
             return (
-              <Card key={pokemon} name={pokemon.name} index={pokemonIndex} />
+              <Card
+                key={pokemon.name}
+                name={pokemon.name}
+                index={pokemonIndex}
+              />
             );
           })}
         </div>
